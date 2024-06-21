@@ -43,11 +43,11 @@ public extension Project {
             deploymentTargets: deploymentTarget,
             infoPlist: nil,
             sources: ["Tests/**"],
-            dependencies: [.target(name: name)]
+            dependencies: []
         )
         
         let schemes: [Scheme] = [.makeScheme(name: name, target: .debug)]
-        let targets: [Target] = [appTarget, testTarget]
+        let targets: [Target] = [appTarget]
         
         return Project(
             name: name,

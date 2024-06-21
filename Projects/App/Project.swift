@@ -10,6 +10,14 @@ let project = Project.makeModule(
         .project(
             target: "Feature",
             path: .relativeToRoot("Projects/Feature")
+        ),
+        .project(
+            target: "SecondFeature",
+            path: .relativeToRoot("Projects/SecondFeature")
+        ),
+        .project(
+            target: "Services",
+            path: .relativeToRoot("Projects/Services")
         )
     ]
 )
