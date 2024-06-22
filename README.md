@@ -36,6 +36,7 @@ App 모듈
 
 1. Tuist로 프로젝트 생성하는 방법
 2. Tuist로 모듈화하는 방법
+3. tuist scaffold로 Template 생성 및 적용하는 방법
 
 ## 실행 화면
 
