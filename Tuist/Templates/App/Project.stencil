@@ -1,0 +1,12 @@
+import ProjectDescription
+import ProjectDescriptionHelpers
+
+let project = Project.makeModule(
+    name: "{{ name }}",
+    product: .app,
+    infoPlist: .file(path: "Resource/Info.plist"),
+    resources: ["Resources/**"],
+    dependencies: [
+    
+    ]
+)

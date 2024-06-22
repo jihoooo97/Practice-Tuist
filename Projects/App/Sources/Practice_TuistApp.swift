@@ -11,7 +11,7 @@ import SecondFeature
 import Services
 
 @main
-struct ANBDConsumerApp: App {
+struct Practice_TuistApp: App {
     
     var body: some Scene {
         WindowGroup {
