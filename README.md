@@ -38,6 +38,8 @@ App 모듈
 2. Tuist로 모듈화하는 방법
 3. tuist scaffold로 Template 생성 및 적용하는 방법
 
+<br>
+
 ## 실행 화면
 
 <img src="https://github.com/jihoooo97/Practice-Tuist/assets/49361214/d33debc7-be9d-4b83-a746-a9af4f548fad" width=30%>
