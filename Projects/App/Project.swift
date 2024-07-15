@@ -8,16 +8,12 @@ let project = Project.makeModule(
     resources: ["Resources/**"],
     dependencies: [
         .project(
-            target: "Feature",
-            path: .relativeToRoot("Projects/Feature")
+            target: "RootFeature",
+            path: .relativeToRoot("Projects/Features/RootFeature")
         ),
         .project(
-            target: "SecondFeature",
-            path: .relativeToRoot("Projects/SecondFeature")
-        ),
-        .project(
-            target: "Services",
-            path: .relativeToRoot("Projects/Services")
+            target: "Data",
+            path: .relativeToRoot("Projects/Data")
         )
     ]
 )
