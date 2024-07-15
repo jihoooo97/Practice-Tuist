@@ -19,16 +19,28 @@ Tuist로 프로젝트 생성 및 모듈화 연습용 저장소입니다.
 
 ## 모듈 구조
 
-![graph](https://github.com/jihoooo97/Practice-Tuist/assets/49361214/b7decf08-4988-46ab-aea8-8f580baad5a2)
+![graph](https://github.com/jihoooo97/Practice-Tuist/blob/main/graph.png)
 
 - **Practice-Tuist**  
-App 모듈  
-- **Feature**  
+App 모듈
+- **RootFeature**  
+Feature 모듈의 Root Feature
+- **FeatureA**  
 첫번째 탭에 보여질 Feature 모듈
-- **SecondFeature**  
+- **FeatureB**  
 두번째 탭에 보여질 Feature 모듈
-- **Services**  
-앱 전반으로 쓰일 기능 모듈
+- **FeatureC**  
+세번째 탭에 보여질 Feature 모듈
+- **FeatureDependency**  
+Feature 모듈들의 공통 의존성 모듈
+- **Data**  
+서버와 or 로컬 DB와 직접적인 통신을 하는 코드를 모은 모듈
+- **Domain**  
+앱의 비즈니스 로직 코드를 모은 모듈
+- **UIComponent**  
+앱 전반으로 쓰일 UI코드를 모은 모듈
+- **Core**  
+앱 전반으로 쓰일 코드를 모은 모듈
 
 <br>
 
@@ -37,13 +49,5 @@ App 모듈
 1. Tuist로 프로젝트 생성하는 방법
 2. Tuist로 모듈화하는 방법
 3. tuist scaffold로 Template 생성 및 적용하는 방법
-
-<br>
-
-## 실행 화면
-
-<img src="https://github.com/jihoooo97/Practice-Tuist/assets/49361214/d33debc7-be9d-4b83-a746-a9af4f548fad" width=30%>
-<img src="https://github.com/jihoooo97/Practice-Tuist/assets/49361214/0549830d-45e2-46c6-8476-12d6b2f4d105" width=30%>
-<img src="https://github.com/jihoooo97/Practice-Tuist/assets/49361214/b031d186-8adc-4a21-9afa-ba6262f7fd93" width=30%>
 
 <br><br>
