@@ -1,5 +1,5 @@
 //
-//  FeatureCView.swift
+//  FeatureBView.swift
 //  AppManifests
 //
 //  Created by 유지호 on 6/21/24.
@@ -10,15 +10,15 @@ import Core
 
 import SwiftUI
 
-public struct FeatureCView: View {
-    @EnvironmentObject private var coordinator: FeatureCCoordinator
+public struct FeatureBView: View {
+    @EnvironmentObject private var coordinator: FeatureBCoordinator
     
     public init() { }
     
     public var body: some View {
         VStack {
             Button("push") {
-                coordinator.push(.cDetail)
+                coordinator.push(.bDetail)
             }
             
             Button("sheet") {
@@ -33,5 +33,5 @@ public struct FeatureCView: View {
 }
 
 #Preview {
-    FeatureCView()
+    FeatureBView()
 }

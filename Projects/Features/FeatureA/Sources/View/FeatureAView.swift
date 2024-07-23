@@ -7,10 +7,12 @@
 //
 
 import FeatureDependency
+import Core
 
 import SwiftUI
 
 public struct FeatureAView: View {
+    @EnvironmentObject private var coordinator: FeatureACoordinator
 //    private let someService: SomeService
 //    
 //    @State private var number: String = "버튼을 눌러 숫자를 갱신하세요."
@@ -22,10 +24,16 @@ public struct FeatureAView: View {
     
     public var body: some View {
         VStack {
-//            Text(number)
+            Button("push") {
+                coordinator.push(.aDetail)
+            }
             
-            Button("갱신하기") {
-//                number = someService.fetchNumber()
+            Button("sheet") {
+                coordinator.present(.sheet)
+            }
+            
+            Button("fullScreenCover") {
+                coordinator.fullCover(.fullScreenCover)
             }
         }
     }
