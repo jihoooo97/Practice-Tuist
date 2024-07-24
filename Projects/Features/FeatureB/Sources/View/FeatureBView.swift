@@ -22,16 +22,12 @@ public struct FeatureBView: View {
             }
             
             Button("sheet") {
-                coordinator.present(.sheet)
+                coordinator.present(.bDetail)
             }
             
             Button("fullScreenCover") {
-                coordinator.fullCover(.fullScreenCover)
+                coordinator.fullScreenCover(.bDetail)
             }
         }
     }
-}
-
-#Preview {
-    FeatureBView()
 }

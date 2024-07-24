@@ -11,14 +11,33 @@ import Core
 
 import SwiftUI
 
-public final class FeatureCCoordinator: Coordinator<CScene> {
+public final class FeatureCCoordinator: Coordinator {
+        
+    @Published public var path: NavigationPath = .init()
+    @Published public var sheet: Destination?
+    @Published public var fullScreenCover: Destination?
+    
+    
+    public init() { }
+    
     
     @ViewBuilder
-    public func buildScene(_ scene: CScene) -> some View {
+    public func buildScene(_ scene: Destination) -> some View {
         switch scene {
+        case .c:
+            container.resolve(FeatureCView.self)
         default:
-            Text("\(scene)")
+            Button("dismiss") {
+                self.dismiss()
+            }
         }
+    }
+    
+    public enum Destination: Sceneable {
+        case c
+        case cDetail
+        
+        public var id: String { "\(self)" }
     }
     
 }

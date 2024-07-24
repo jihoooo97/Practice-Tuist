@@ -23,15 +23,15 @@ public struct RootFeatureView: View {
     public var body: some View {
         TabView(selection: $tabCoordinator.selection) {
             NavigationStack(path: $aCoordinator.path) {
-                FeatureAView()
-                    .navigationDestination(for: AScene.self) { scene in
+                aCoordinator.buildScene(.a)
+                    .navigationDestination(for: FeatureACoordinator.Destination.self) { scene in
                         aCoordinator.buildScene(scene)
                             .toolbarRole(.editor)
                     }
                     .sheet(item: $aCoordinator.sheet) { scene in
                         aCoordinator.buildScene(scene)
                     }
-                    .fullScreenCover(item: $aCoordinator.fullCover) { scene in
+                    .fullScreenCover(item: $aCoordinator.fullScreenCover) { scene in
                         aCoordinator.buildScene(scene)
                     }
             }
@@ -42,15 +42,15 @@ public struct RootFeatureView: View {
             }
 
             NavigationStack(path: $bCoordinator.path) {
-                FeatureBView()
-                    .navigationDestination(for: BScene.self) { scene in
+                bCoordinator.buildScene(.b)
+                    .navigationDestination(for: FeatureBCoordinator.Destination.self) { scene in
                         bCoordinator.buildScene(scene)
                             .toolbarRole(.editor)
                     }
                     .sheet(item: $bCoordinator.sheet) { scene in
                         bCoordinator.buildScene(scene)
                     }
-                    .fullScreenCover(item: $bCoordinator.fullCover) { scene in
+                    .fullScreenCover(item: $bCoordinator.fullScreenCover) { scene in
                         bCoordinator.buildScene(scene)
                     }
             }
@@ -61,20 +61,16 @@ public struct RootFeatureView: View {
             }
             
             NavigationStack(path: $cCoordinator.path) {
-                FeatureCView()
-                    .navigationDestination(for: CScene.self) { scene in
+                cCoordinator.buildScene(.c)
+                    .navigationDestination(for: FeatureCCoordinator.Destination.self) { scene in
                         cCoordinator.buildScene(scene)
                             .toolbarRole(.editor)
                     }
                     .sheet(item: $cCoordinator.sheet) { scene in
                         cCoordinator.buildScene(scene)
                     }
-                    .fullScreenCover(item: $cCoordinator.fullCover) { scene in
-                        Text("\(scene)")
-                        
-                        Button("dismiss") {
-                            cCoordinator.dismiss()
-                        }
+                    .fullScreenCover(item: $cCoordinator.fullScreenCover) { scene in
+                        cCoordinator.buildScene(scene)
                     }
             }
             .environmentObject(cCoordinator)
@@ -86,7 +82,7 @@ public struct RootFeatureView: View {
         .sheet(item: $tabCoordinator.sheet) { scene in
             Text("\(scene)")
         }
-        .fullScreenCover(item: $tabCoordinator.fullCover) { scene in
+        .fullScreenCover(item: $tabCoordinator.fullScreenCover) { scene in
             Text("\(scene)")
             
             Button("dismiss") {

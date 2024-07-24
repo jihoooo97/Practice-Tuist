@@ -13,6 +13,6 @@ import Foundation
 
 public final class FeatureAViewModel: ObservableObject {
     
-    
+    public init() { }
     
 }

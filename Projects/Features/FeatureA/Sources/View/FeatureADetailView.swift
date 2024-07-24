@@ -8,12 +8,16 @@
 
 import SwiftUI
 
-struct FeatureADetailView: View {
-    var body: some View {
+public struct FeatureADetailView: View {
+    @EnvironmentObject private var coordinator: FeatureACoordinator
+    
+    public init() { }
+    
+    public var body: some View {
         Text("Hello, A!")
+        
+        Button("dismiss") {
+            coordinator.dismiss()
+        }
     }
-}
-
-#Preview {
-    FeatureADetailView()
 }

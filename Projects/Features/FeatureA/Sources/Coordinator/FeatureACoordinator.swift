@@ -11,20 +11,31 @@ import Core
 
 import SwiftUI
 
-public final class FeatureACoordinator: Coordinator<AScene> {
+public final class FeatureACoordinator: Coordinator {
+        
+    @Published public var path: NavigationPath = .init()
+    @Published public var sheet: Destination?
+    @Published public var fullScreenCover: Destination?
+    
+    
+    public init() { }
+    
     
     @ViewBuilder
-    public func buildScene(_ scene: AScene) -> some View {
+    public func buildScene(_ scene: Destination) -> some View {
         switch scene {
         case .a:
-            FeatureAView()
+            container.resolve(FeatureAView.self)
         case .aDetail:
-            FeatureADetailView()
-        case .sheet:
-            FeatureASheet()
-        case .fullScreenCover:
-            FeatureAFullScreenView()
+            container.resolve(FeatureADetailView.self)
         }
+    }
+    
+    public enum Destination: Sceneable {
+        case a
+        case aDetail
+        
+        public var id: String { "\(self)" }
     }
     
 }

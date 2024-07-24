@@ -13,14 +13,12 @@ import SwiftUI
 
 public struct FeatureAView: View {
     @EnvironmentObject private var coordinator: FeatureACoordinator
-//    private let someService: SomeService
-//    
-//    @State private var number: String = "버튼을 눌러 숫자를 갱신하세요."
-//    
-//    public init(someService: SomeService) {
-//        self.someService = someService
-//    }
-    public init() { }
+    
+    @StateObject private var viewModel: FeatureAViewModel
+    
+    public init(viewModel: FeatureAViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     public var body: some View {
         VStack {
@@ -29,11 +27,11 @@ public struct FeatureAView: View {
             }
             
             Button("sheet") {
-                coordinator.present(.sheet)
+                coordinator.present(.aDetail)
             }
             
             Button("fullScreenCover") {
-                coordinator.fullCover(.fullScreenCover)
+                coordinator.fullScreenCover(.aDetail)
             }
         }
     }

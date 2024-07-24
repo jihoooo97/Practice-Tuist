@@ -13,6 +13,12 @@ import SwiftUI
 @main
 struct Practice_TuistApp: App {
     
+    init() {
+        registerDataDependencies()
+        registerDomainDependencies()
+        registerPresentationDependencies()
+    }
+    
     var body: some Scene {
         WindowGroup {
             RootFeatureView()

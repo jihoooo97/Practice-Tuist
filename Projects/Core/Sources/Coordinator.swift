@@ -8,39 +8,50 @@
 
 import SwiftUI
 
-open class Coordinator<S: Sceneable>: ObservableObject {
+public protocol Coordinator: ObservableObject {
+    associatedtype Destination: Sceneable
     
-    @Published public var path: NavigationPath = .init()
-    @Published public var sheet: S?
-    @Published public var fullCover: S?
+    var path: NavigationPath { get set }
+    var sheet: Destination? { get set }
+    var fullScreenCover: Destination? { get set }
     
+    func push(_ destination: Destination)
+    func pop()
+    func popToRoot()
     
-    public init() { }
+    func present(_ destination: Destination)
+    func fullScreenCover(_ destination: Destination)
+    func dismiss()
+}
+
+public extension Coordinator {
     
+    var container: DIContainer { DIContainer.shared }
     
-    open func push(_ scene: S) {
-        path.append(scene)
+    func push(_ destination: Destination) {
+        path.append(destination)
     }
     
-    open func pop() {
+    func pop() {
         path.removeLast()
     }
     
-    open func popToRoot() {
+    func popToRoot() {
         path.removeLast(path.count)
     }
     
-    open func present(_ scene: S) {
-        sheet = scene
+    
+    func present(_ destination: Destination) {
+        sheet = destination
     }
     
-    open func fullCover(_ scene: S) {
-        fullCover = scene
+    func fullScreenCover(_ destination: Destination) {
+        fullScreenCover = destination
     }
      
-    open func dismiss() {
+    func dismiss() {
         sheet = nil
-        fullCover = nil
+        fullScreenCover = nil
     }
     
 }
