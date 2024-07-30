@@ -1,5 +1,5 @@
 //
-//  Dependencies.swift
+//  PresentationDependency.swift.swift
 //  Practice-Tuist
 //
 //  Created by 유지호 on 7/24/24.
@@ -7,8 +7,6 @@
 //
 
 import Core
-import Data
-import Domain
 
 import RootFeature
 import FeatureA
@@ -17,46 +15,36 @@ import FeatureC
 
 import SwiftUI
 
-extension App {
-    
-    var container: DIContainer { DIContainer.shared }
-    
-    func registerDataDependencies() {
+extension DIContainer {
         
-    }
-    
-    func registerDomainDependencies() {
-        
-    }
-    
     func registerPresentationDependencies() {
         // MARK: FeatureA
-        container.register(FeatureAViewModel.self) {
+        register(FeatureAViewModel.self) {
             return FeatureAViewModel()
         }
         
-        container.register(FeatureAView.self) {
-            let viewModel = container.resolve(FeatureAViewModel.self)
+        register(FeatureAView.self) {
+            let viewModel = self.resolve(FeatureAViewModel.self)
             return FeatureAView(viewModel: viewModel)
         }
         
-        container.register(FeatureADetailView.self) {
+        register(FeatureADetailView.self) {
             FeatureADetailView()
         }
         
         
         // MARK: FeatureB
-        container.register(FeatureBView.self) {
+        register(FeatureBView.self) {
             FeatureBView()
         }
         
-        container.register(FeatureBDetailView.self) {
+        register(FeatureBDetailView.self) {
             FeatureBDetailView()
         }
         
         
         // MARK: FeatureC
-        container.register(FeatureCView.self) {
+        register(FeatureCView.self) {
             FeatureCView()
         }
     }

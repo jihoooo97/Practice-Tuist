@@ -13,6 +13,14 @@ import Foundation
 
 public final class FeatureAViewModel: ObservableObject {
     
-    public init() { }
+    @Published var sum: Int = 0
+    
+    public init() {
+        print("init")
+    }
+    
+    deinit {
+        print("deinit")
+    }
     
 }

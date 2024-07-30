@@ -22,6 +22,12 @@ public struct FeatureAView: View {
     
     public var body: some View {
         VStack {
+            Text(viewModel.sum.formatted())
+            
+            Button("add") {
+                viewModel.sum += 1
+            }
+            
             Button("push") {
                 coordinator.push(.aDetail)
             }
